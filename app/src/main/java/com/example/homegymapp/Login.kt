@@ -6,25 +6,20 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.homegymapp.databinding.ActivityMainBinding
+import com.example.homegymapp.databinding.ActivityLoginBinding
 
-class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivityMainBinding
+class Login : AppCompatActivity() {
+    lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.signUpButton.setOnClickListener {
-            val intent = Intent(this, SignIn::class.java)
+        binding.login.setOnClickListener {
+            val intent = Intent(this, HomePage::class.java)
             startActivity(intent)
         }
-        binding.loginButton.setOnClickListener {
-            val intent = Intent(this, Login::class.java)
-            startActivity(intent)
-        }
-
 
     }
 }

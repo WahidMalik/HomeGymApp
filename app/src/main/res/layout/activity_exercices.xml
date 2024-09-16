@@ -10,7 +10,7 @@
     android:fitsSystemWindows="true"
     android:background="#E20707"
     android:gravity="center"
-    tools:context=".DayList">
+    tools:context=".Exercices">
 
     <TextView
         android:layout_width="wrap_content"
@@ -51,18 +51,18 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/_30sdp"
-            android:text="Day Schedule"
+            android:text="Day 10 Exercises"
             android:fontFamily="@font/anton"
             android:textColor="#E20707"
-            android:textSize="@dimen/_35ssp"
+            android:textSize="@dimen/_25ssp"
 
             />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/daylistrecycle"
+            android:id="@+id/exercisesrecycle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/daylist"
+            tools:listitem="@layout/exercise"
             />
 
 

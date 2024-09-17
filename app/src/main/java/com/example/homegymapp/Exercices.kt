@@ -18,6 +18,10 @@ class Exercices : AppCompatActivity() {
         binding = ActivityExercicesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.backButton.setOnClickListener {
+            onBackPressed()
+        }
+
         list = ArrayList()
         list.add(ExerciseData(R.drawable.shoulders, "Shoulders"))
         list.add(ExerciseData(R.drawable.back, "Back"))
@@ -30,4 +34,9 @@ class Exercices : AppCompatActivity() {
 
 
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+    }
+
 }

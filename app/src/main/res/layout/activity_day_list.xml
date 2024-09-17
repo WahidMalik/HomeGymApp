@@ -12,6 +12,16 @@
     android:gravity="center"
     tools:context=".DayList">
 
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:background="@drawable/backbutton"
+        android:layout_marginTop="@dimen/_10sdp"
+        />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

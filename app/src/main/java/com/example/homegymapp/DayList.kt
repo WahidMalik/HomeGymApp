@@ -18,6 +18,10 @@ class DayList : AppCompatActivity() {
         binding = ActivityDayListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.backButton.setOnClickListener {
+            onBackPressed()
+        }
+
         list = ArrayList()
         list.add(DayListModel("Day 1", "Arm Exercises"))
         list.add(DayListModel("Day 2", "Leg Exercises"))
@@ -34,5 +38,9 @@ class DayList : AppCompatActivity() {
 
 
 
+
+    }
+    override fun onBackPressed() {
+        super.onBackPressed()
     }
 }

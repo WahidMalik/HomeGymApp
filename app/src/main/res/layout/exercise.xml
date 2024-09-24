@@ -35,6 +35,21 @@
             android:textStyle="bold"
             />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <CheckedTextView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="right"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:background="#FFF"
+                android:layout_marginRight="@dimen/_10sdp"
+                />
+        </LinearLayout>
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

@@ -70,10 +70,10 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/email"
+            android:id="@+id/userName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter email"
+            android:hint="Enter username"
             app:boxStrokeColor="#E20707"
             app:hintTextColor="#E20707"
             android:layout_marginLeft="@dimen/_20sdp"

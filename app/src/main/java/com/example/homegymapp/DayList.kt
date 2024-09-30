@@ -1,45 +1,53 @@
 package com.example.homegymapp
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.homegymapp.databinding.ActivityDayListBinding
+import kotlinx.coroutines.launch
 
 class DayList : AppCompatActivity() {
-    lateinit var binding: ActivityDayListBinding
-    lateinit var adapter: DayListAdapter
-    lateinit var list: ArrayList<DayListModel>
+    private lateinit var binding: ActivityDayListBinding
+    private lateinit var adapter: DayListAdapter
+    private lateinit var list: ArrayList<DayListModel>
+    private lateinit var database: UserDatabase
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         binding = ActivityDayListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.backButton.setOnClickListener {
-            onBackPressed()
-        }
+        database = UserDatabase.getDatabase(this)
+        val muscleGroup = intent.getStringExtra("muscle_group")
 
         list = ArrayList()
-        list.add(DayListModel("Day 1", "Arm Exercises"))
-        list.add(DayListModel("Day 2", "Leg Exercises"))
-        list.add(DayListModel("Day 3", "Back Exercises"))
-        list.add(DayListModel("Day 4", "Chest Exercises"))
-        list.add(DayListModel("Day 5", "Shoulder Exercises"))
-        list.add(DayListModel("Day 6", "Abs Exercises"))
-        list.add(DayListModel("Day 7", "Cardio Exercises"))
-
-        adapter = DayListAdapter(list)
-        binding.daylistrecycle.layoutManager = LinearLayoutManager(this)
+        adapter = DayListAdapter(list) // Set up adapter before fetching data
+        binding.daylistrecycle.layoutManager = LinearLayoutManager(this@DayList)
         binding.daylistrecycle.adapter = adapter
 
+        lifecycleScope.launch {
+            if (muscleGroup != null) {
+                try {
+                    val days = database.daydataDao().getDaysByMuscleGroup(muscleGroup)
+                    if (days.isNotEmpty()) {
+                        for (dayEntity in days) {
+                            list.add(DayListModel(dayEntity.dayNumber.toString(), dayEntity.muscleGroup))
+                        }
+                        adapter.notifyDataSetChanged() // Notify adapter after data has been fetched
+                    } else {
+                        Toast.makeText(this@DayList, "No data available for $muscleGroup", Toast.LENGTH_SHORT).show()
+                    }
+                } catch (e: Exception) {
+                    Toast.makeText(this@DayList, "Error fetching data: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
 
-
-
-
+        binding.backButton.setOnClickListener { onBackPressed() }
     }
+
     override fun onBackPressed() {
         super.onBackPressed()
     }

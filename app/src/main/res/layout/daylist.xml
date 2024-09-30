@@ -10,10 +10,12 @@
     >
 
     <LinearLayout
+        android:id="@+id/dayslist"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_65sdp"
         android:orientation="vertical"
         android:background="#E20707"
+        android:clickable="true"
         >
 
         <TextView

@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.homegymapp.databinding.ExerciseBinding
 
 
-class ExerciseAdapter(private var exerciseList: List<ExerciseDataEntity>) : RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder>() {
+class ExerciseAdapter(private var exerciseList: ArrayList<ExerciseData>) : RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder>() {
 
     class ExerciseViewHolder(val binding: ExerciseBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -23,11 +23,8 @@ class ExerciseAdapter(private var exerciseList: List<ExerciseDataEntity>) : Recy
         val exercise = exerciseList[position]
         holder.binding.exercuse.text = exercise.name
         holder.binding.time.text = exercise.time
-        holder.binding.exerciseImage.setImageResource(exercise.image)
+
     }
 
-    fun updateData(newExercises: List<ExerciseDataEntity>) {
-        exerciseList = newExercises
-        notifyDataSetChanged()
-    }
+
 }

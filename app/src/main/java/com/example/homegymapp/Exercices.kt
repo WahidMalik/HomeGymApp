@@ -3,19 +3,17 @@ package com.example.homegymapp
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.homegymapp.databinding.ActivityExercicesBinding
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class Exercices : AppCompatActivity() {
 
     private lateinit var binding: ActivityExercicesBinding
-    private lateinit var database: UserDatabase
-    private lateinit var exerciseDao: ExerciseDao
     private lateinit var adapter: ExerciseAdapter
+    private lateinit var list: ArrayList<ExerciseData>
+    private lateinit var database: UserDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,27 +21,42 @@ class Exercices : AppCompatActivity() {
         setContentView(binding.root)
 
         database = UserDatabase.getDatabase(this)
-        exerciseDao = database.exerciseDao()
+        val muscleGroup = intent.getStringExtra("muscle_group1")
+        val dayNumber = intent.getStringExtra("day_number")?.toIntOrNull()
 
-        val dayId = intent.getIntExtra("dayId", -1)
+        list = ArrayList()
+        adapter = ExerciseAdapter(list)
+        binding.exercisesrecycle.layoutManager = LinearLayoutManager(this@Exercices)
+        binding.exercisesrecycle.adapter = adapter
 
-        if (dayId != -1) {
-            loadExercises(dayId)
-        } else {
-            Toast.makeText(this, "Invalid day ID", Toast.LENGTH_SHORT).show()
-        }
-    }
+        Toast.makeText(this@Exercices, "Day Number: $dayNumber", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this@Exercices, "Muscle Group: $muscleGroup", Toast.LENGTH_SHORT).show()
 
-    private fun loadExercises(dayId: Int) {
-        CoroutineScope(Dispatchers.IO).launch {
-            val exercises = exerciseDao.getExercisesByDayId(dayId) // Modify this line as per your DAO method
-            withContext(Dispatchers.Main) {
-                if (exercises.isNotEmpty()) {
-                    adapter = ExerciseAdapter(exercises)
-                    binding.exercisesrecycle.adapter = adapter
-                } else {
-                    Toast.makeText(this@Exercices, "No exercises found", Toast.LENGTH_SHORT).show()
+        lifecycleScope.launch {
+            if (muscleGroup != null && dayNumber != null) {
+                try {
+                    val exercises = database.exerciseDao().getExercisesByDayIdAndMuscleGroup(dayNumber, muscleGroup)
+                    if (exercises.isNotEmpty()) {
+                        for (exercise in exercises) {
+                            list.add(
+                                ExerciseData(
+                                    exercise.name,
+                                    exercise.image.toString(), // Assuming image is a resource ID, convert to string if needed
+                                    exercise.videoUrl,
+                                    exercise.muscleGroup,
+                                    exercise.time
+                                )
+                            )
+                        }
+                        adapter.notifyDataSetChanged()
+                    } else {
+                        Toast.makeText(this@Exercices, "No data available for $muscleGroup", Toast.LENGTH_SHORT).show()
+                    }
+                } catch (e: Exception) {
+                    Toast.makeText(this@Exercices, "Error fetching data: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
+            } else {
+                Toast.makeText(this@Exercices, "Invalid day number or muscle group", Toast.LENGTH_SHORT).show()
             }
         }
     }

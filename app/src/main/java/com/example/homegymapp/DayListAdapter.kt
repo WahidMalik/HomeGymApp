@@ -24,7 +24,8 @@ class DayListAdapter(private val listModel: ArrayList<DayListModel>) : RecyclerV
         holder.binding.day.text = dayListModel.day
         holder.binding.dayslist.setOnClickListener {
             val intent = Intent(holder.itemView.context, Exercices::class.java)
-            intent.putExtra("dayId", dayListModel.dayId) // Ensure dayListModel has id property
+            intent.putExtra("day_number", dayListModel.day)
+            intent.putExtra("muscle_group1", dayListModel.muscleGroup)
             holder.itemView.context.startActivity(intent)
         }
     }

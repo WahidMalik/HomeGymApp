@@ -23,7 +23,7 @@ class DayList : AppCompatActivity() {
         val muscleGroup = intent.getStringExtra("muscle_group")
 
         list = ArrayList()
-        adapter = DayListAdapter(list) // Set up adapter before fetching data
+        adapter = DayListAdapter(list)
         binding.daylistrecycle.layoutManager = LinearLayoutManager(this@DayList)
         binding.daylistrecycle.adapter = adapter
 
@@ -33,7 +33,7 @@ class DayList : AppCompatActivity() {
                     val days = database.daydataDao().getDaysByMuscleGroup(muscleGroup)
                     if (days.isNotEmpty()) {
                         for (dayEntity in days) {
-                            list.add(DayListModel(dayEntity.id, dayEntity.dayNumber.toString(), dayEntity.muscleGroup))
+                            list.add(DayListModel( dayEntity.dayNumber.toString(), dayEntity.muscleGroup))
                         }
                         adapter.notifyDataSetChanged() // Notify adapter after data has been fetched
                     } else {

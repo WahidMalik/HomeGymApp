@@ -23,17 +23,36 @@
             android:layout_marginLeft="@dimen/_10sdp"
             android:src="@drawable/shoulders"
             />
-        <TextView
-            android:id="@+id/des"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Describe"
-            android:layout_gravity="center"
-            android:textSize="@dimen/_13ssp"
-            android:textColor="@color/white"
-            android:layout_marginLeft="@dimen/_20sdp"
-            android:textStyle="bold"
-            />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+            <TextView
+                android:id="@+id/exercuse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Exercise"
+                android:layout_gravity="center"
+                android:textSize="@dimen/_13ssp"
+                android:textColor="@color/white"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0:30"
+                android:layout_gravity="center"
+                android:textSize="@dimen/_13ssp"
+                android:textColor="@color/white"
+                android:layout_marginLeft="@dimen/_20sdp"
+
+                />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

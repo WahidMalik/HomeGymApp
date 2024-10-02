@@ -5,24 +5,29 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.homegymapp.databinding.ExerciseBinding
 
-class ExerciseAdapter (val list: ArrayList<ExerciseData>) : RecyclerView.Adapter<ExerciseAdapter.MyViewHolder>()  {
 
-    class MyViewHolder (var binding: ExerciseBinding) : RecyclerView.ViewHolder(binding.root)
+class ExerciseAdapter(private var exerciseList: List<ExerciseDataEntity>) : RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+    class ExerciseViewHolder(val binding: ExerciseBinding) : RecyclerView.ViewHolder(binding.root)
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExerciseViewHolder {
         val binding = ExerciseBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return MyViewHolder(binding)
+        return ExerciseViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
-        return list.size
+        return exerciseList.size
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val exerciseData = list[position]
-        holder.binding.exerciseImage.setImageResource(exerciseData.image)
-        holder.binding.des.text = exerciseData.title
-
+    override fun onBindViewHolder(holder: ExerciseViewHolder, position: Int) {
+        val exercise = exerciseList[position]
+        holder.binding.exercuse.text = exercise.name
+        holder.binding.time.text = exercise.time
+        holder.binding.exerciseImage.setImageResource(exercise.image)
     }
 
+    fun updateData(newExercises: List<ExerciseDataEntity>) {
+        exerciseList = newExercises
+        notifyDataSetChanged()
+    }
 }

@@ -33,7 +33,7 @@ class DayList : AppCompatActivity() {
                     val days = database.daydataDao().getDaysByMuscleGroup(muscleGroup)
                     if (days.isNotEmpty()) {
                         for (dayEntity in days) {
-                            list.add(DayListModel(dayEntity.dayNumber.toString(), dayEntity.muscleGroup))
+                            list.add(DayListModel(dayEntity.id, dayEntity.dayNumber.toString(), dayEntity.muscleGroup))
                         }
                         adapter.notifyDataSetChanged() // Notify adapter after data has been fetched
                     } else {

@@ -1,8 +1,8 @@
 package com.example.homegymapp
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.homegymapp.databinding.DaylistBinding
 
@@ -23,8 +23,9 @@ class DayListAdapter(private val listModel: ArrayList<DayListModel>) : RecyclerV
         val dayListModel = listModel[position]
         holder.binding.day.text = dayListModel.day
         holder.binding.dayslist.setOnClickListener {
-            Toast.makeText(holder.itemView.context, "Clicked on ${dayListModel.day}", Toast.LENGTH_SHORT).show()
+            val intent = Intent(holder.itemView.context, Exercices::class.java)
+            intent.putExtra("dayId", dayListModel.dayId) // Ensure dayListModel has id property
+            holder.itemView.context.startActivity(intent)
         }
-
     }
 }

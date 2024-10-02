@@ -1,42 +1,50 @@
 package com.example.homegymapp
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.homegymapp.databinding.ActivityExercicesBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class Exercices : AppCompatActivity() {
-    lateinit var binding: ActivityExercicesBinding
-    lateinit var adapter: ExerciseAdapter
-    lateinit var list: ArrayList<ExerciseData>
+
+    private lateinit var binding: ActivityExercicesBinding
+    private lateinit var database: UserDatabase
+    private lateinit var exerciseDao: ExerciseDao
+    private lateinit var adapter: ExerciseAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         binding = ActivityExercicesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.backButton.setOnClickListener {
-            onBackPressed()
+        database = UserDatabase.getDatabase(this)
+        exerciseDao = database.exerciseDao()
+
+        val dayId = intent.getIntExtra("dayId", -1)
+
+        if (dayId != -1) {
+            loadExercises(dayId)
+        } else {
+            Toast.makeText(this, "Invalid day ID", Toast.LENGTH_SHORT).show()
         }
-
-        list = ArrayList()
-        list.add(ExerciseData(R.drawable.shoulders, "Shoulders"))
-        list.add(ExerciseData(R.drawable.back, "Back"))
-        list.add(ExerciseData(R.drawable.abs, "Abs"))
-
-        adapter = ExerciseAdapter(list)
-        binding.exercisesrecycle.layoutManager = LinearLayoutManager(this)
-        binding.exercisesrecycle.adapter = adapter
-
-
-
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
+    private fun loadExercises(dayId: Int) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val exercises = exerciseDao.getExercisesByDayId(dayId) // Modify this line as per your DAO method
+            withContext(Dispatchers.Main) {
+                if (exercises.isNotEmpty()) {
+                    adapter = ExerciseAdapter(exercises)
+                    binding.exercisesrecycle.adapter = adapter
+                } else {
+                    Toast.makeText(this@Exercices, "No exercises found", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
-
 }

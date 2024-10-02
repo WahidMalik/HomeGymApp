@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import com.example.homegymapp.databinding.ActivityHomePageBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -32,6 +31,7 @@ class HomePage : AppCompatActivity() {
         binding.back.setOnClickListener { navigateToDayList("Back") }
 
         checkAndInsertDays()
+        checkAndInsertExercises()
     }
 
     private fun navigateToDayList(muscleGroup: String) {
@@ -46,7 +46,6 @@ class HomePage : AppCompatActivity() {
 
         if (!daysInserted) {
             insertDays()
-            // Mark days as inserted
             sharedPreferences.edit().putBoolean("days_inserted", true).apply()
         }
     }
@@ -54,23 +53,42 @@ class HomePage : AppCompatActivity() {
     private fun insertDays() {
         val muscles = listOf("Arm", "Chest", "Shoulders", "Leg", "Back", "Abs")
         CoroutineScope(Dispatchers.IO).launch {
-            try {
-                for (muscle in muscles) {
-                    for (i in 1..30) {
-                        val day = DaydataEntity(id = 0, dayNumber = i, muscleGroup = muscle)
-                        database.daydataDao().insertDays(day)
-                    }
+            for (muscle in muscles) {
+                for (i in 1..30) {
+                    val day = DaydataEntity(id = 0, dayNumber = i, muscleGroup = muscle)
+                    database.daydataDao().insertDays(day)
                 }
-
-                withContext(Dispatchers.Main) {
-                    Toast.makeText(this@HomePage, "Days inserted successfully", Toast.LENGTH_SHORT).show()
-                }
-            } catch (e: Exception) {
-                withContext(Dispatchers.Main) {
-                    Toast.makeText(this@HomePage, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
-                }
+            }
+            withContext(Dispatchers.Main) {
+                Toast.makeText(this@HomePage, "Days inserted successfully", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
     }
+
+    private fun checkAndInsertExercises() {
+        val sharedPreferences = getSharedPreferences("com.example.homegymapp", Context.MODE_PRIVATE)
+        val exercisesInserted = sharedPreferences.getBoolean("exercises_inserted", false)
+
+        if (!exercisesInserted) {
+            insertExercises()
+            sharedPreferences.edit().putBoolean("exercises_inserted", true).apply()
+        }
+    }
+    private fun insertExercises() {
+        CoroutineScope(Dispatchers.IO).launch{
+            val armDay1 = ExerciseDataEntity(id=0,name ="Push ups", image = R.id.leg, videoUrl = "push", dayId = 1, muscleGroup = "Arm", time = "0:30")
+            val armDay2 = ExerciseDataEntity(id=0,name ="Pull ups", image = R.id.leg, videoUrl = "pull", dayId = 2, muscleGroup = "Arm", time = "0:30")
+
+            database.exerciseDao().insertExercise(armDay1)
+            database.exerciseDao().insertExercise(armDay2)
+            withContext(Dispatchers.Main){
+                Toast.makeText(this@HomePage, "Exercises inserted successfully", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+
+
 
 }

@@ -60,4 +60,7 @@ class Exercices : AppCompatActivity() {
             }
         }
     }
+    override fun onBackPressed() {
+        super.onBackPressed()
+    }
 }

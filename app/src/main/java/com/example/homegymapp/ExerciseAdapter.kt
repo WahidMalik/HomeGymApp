@@ -1,5 +1,6 @@
 package com.example.homegymapp
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -21,8 +22,15 @@ class ExerciseAdapter(private var exerciseList: ArrayList<ExerciseData>) : Recyc
 
     override fun onBindViewHolder(holder: ExerciseViewHolder, position: Int) {
         val exercise = exerciseList[position]
-        holder.binding.exercuse.text = exercise.name
+        holder.binding.exercisename.text = exercise.name
         holder.binding.time.text = exercise.time
+        holder.binding.exerciselayout.setOnClickListener {
+            val intent = Intent(holder.itemView.context, ExerciceDetails::class.java)
+            intent.putExtra("name", exercise.name)
+            intent.putExtra("time", exercise.time)
+            intent.putExtra("video", exercise.videoUrl)
+            holder.itemView.context.startActivity(intent)
+        }
 
     }
 

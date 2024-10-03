@@ -24,7 +24,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_10sdp"
-        android:text="Push ups"
         android:textColor="#E20707"
         android:textSize="@dimen/_25ssp"
         android:fontFamily="@font/arbutus_slab"

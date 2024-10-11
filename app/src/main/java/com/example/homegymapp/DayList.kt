@@ -22,6 +22,9 @@ class DayList : AppCompatActivity() {
         database = UserDatabase.getDatabase(this)
         val muscleGroup = intent.getStringExtra("muscle_group")
 
+        val muscleName = "$muscleGroup Exercises"
+        binding.muscleName.text = muscleName
+
         list = ArrayList()
         adapter = DayListAdapter(list)
         binding.daylistrecycle.layoutManager = LinearLayoutManager(this@DayList)
@@ -35,7 +38,7 @@ class DayList : AppCompatActivity() {
                         for (dayEntity in days) {
                             list.add(DayListModel( dayEntity.dayNumber.toString(), dayEntity.muscleGroup))
                         }
-                        adapter.notifyDataSetChanged() // Notify adapter after data has been fetched
+                        adapter.notifyDataSetChanged()
                     } else {
                         Toast.makeText(this@DayList, "No data available for $muscleGroup", Toast.LENGTH_SHORT).show()
                     }

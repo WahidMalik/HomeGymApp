@@ -24,6 +24,9 @@ class Exercices : AppCompatActivity() {
         val muscleGroup = intent.getStringExtra("muscle_group1")
         val dayNumber = intent.getStringExtra("day_number")?.toIntOrNull()
 
+        binding.dayNumber.text ="Day "+ dayNumber.toString() + " Exercises"
+        binding.muscleName.text = muscleGroup + " Exercises"
+
         list = ArrayList()
         adapter = ExerciseAdapter(list)
         binding.exercisesrecycle.layoutManager = LinearLayoutManager(this@Exercices)

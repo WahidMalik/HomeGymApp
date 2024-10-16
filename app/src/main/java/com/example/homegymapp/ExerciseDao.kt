@@ -11,6 +11,9 @@ interface ExerciseDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertExercise(exercise: ExerciseDataEntity)
 
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertExercises(exercises: List<ExerciseDataEntity>)
+
     @Query("SELECT * FROM exercise_table WHERE dayId = :dayId AND muscleGroup = :muscleGroup")
     suspend fun getExercisesByDayIdAndMuscleGroup(dayId: Int, muscleGroup: String): List<ExerciseDataEntity>
 }

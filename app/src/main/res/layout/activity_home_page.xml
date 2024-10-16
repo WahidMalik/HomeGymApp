@@ -221,59 +221,6 @@
                     />
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/shoulders"
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="@dimen/_80sdp"
-                android:orientation="vertical"
-                android:layout_marginLeft="@dimen/_20sdp"
-                android:layout_marginRight="@dimen/_20sdp"
-                android:background="@drawable/linearredborder"
-                >
-
-                <ImageView
-                    android:layout_width="@dimen/_50sdp"
-                    android:layout_height="@dimen/_50sdp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/shoulders"
-                    android:scaleType="fitXY"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Shoulders"
-                    android:textStyle="bold"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/back"
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="@dimen/_80sdp"
-                android:orientation="vertical"
-                android:background="@drawable/linearredborder"
-                >
-
-                <ImageView
-                    android:layout_width="@dimen/_50sdp"
-                    android:layout_height="@dimen/_50sdp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/back"
-                    android:scaleType="fitXY"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Back"
-                    android:textStyle="bold"
-                    />
-            </LinearLayout>
-
-
         </LinearLayout>
 
 

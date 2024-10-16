@@ -6,9 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(
     tableName = "exercise_table",
-    foreignKeys = [
-        ForeignKey(entity = DaydataEntity::class, parentColumns = ["id"], childColumns = ["dayId"], onDelete = ForeignKey.CASCADE)
-    ]
+    
 )
 data class ExerciseDataEntity(
     @PrimaryKey(autoGenerate = true)

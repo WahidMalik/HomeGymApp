@@ -1,6 +1,8 @@
 package com.example.homegymapp
 
+import android.net.Uri
 import android.os.Bundle
+import android.widget.MediaController
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -20,7 +22,18 @@ class ExerciceDetails : AppCompatActivity() {
 
         val time = intent.getStringExtra("time")
         val name = intent.getStringExtra("name")
+        val video = intent.getStringExtra("video")
+
         binding.exeName.text = name
+
+        if (video != null) {
+            playVideo(video)
+        } else {
+            Toast.makeText(this, "Video URL is missing", Toast.LENGTH_SHORT).show()
+        }
+
+
+
 
         if (time != null) {
             try {
@@ -48,6 +61,28 @@ class ExerciceDetails : AppCompatActivity() {
                 e.printStackTrace()
                 Toast.makeText(this, "Invalid time format", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+    private fun playVideo(videoUrl: String) {
+        // Create a MediaController to allow play, pause, forward, etc.
+        val mediaController = MediaController(this)
+        mediaController.setAnchorView(binding.exeVideo)
+
+
+        val videoUri = Uri.parse(videoUrl)
+        binding.exeVideo.setMediaController(mediaController)
+        binding.exeVideo.setVideoURI(videoUri)
+        binding.exeVideo.requestFocus()
+
+
+        binding.exeVideo.setOnPreparedListener { binding.exeVideo.start() }
+        binding.exeVideo.setOnErrorListener { _, _, _ ->
+            Toast.makeText(this, "Error playing video", Toast.LENGTH_SHORT).show()
+            true
+        }
+        binding.exeVideo.setOnCompletionListener {
+            binding.exeVideo.seekTo(0)
+            binding.exeVideo.start()
         }
     }
 }

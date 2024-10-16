@@ -41,6 +41,7 @@
                 android:textSize="@dimen/_13ssp"
                 android:textColor="@color/white"
                 android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_20sdp"
                 android:textStyle="bold"
                 />
             <TextView
@@ -48,6 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0:30"
+                android:layout_marginRight="@dimen/_20sdp"
                 android:layout_gravity="center"
                 android:textSize="@dimen/_13ssp"
                 android:textColor="@color/white"

@@ -38,6 +38,7 @@ class HomePage : AppCompatActivity() {
         startActivity(intent)
     }
 
+
     private fun checkAndInsertDays() {
         val sharedPreferences = getSharedPreferences("com.example.homegymapp", Context.MODE_PRIVATE)
         val daysInserted = sharedPreferences.getBoolean("days_inserted", false)

@@ -82,7 +82,7 @@ class HomePage : AppCompatActivity() {
                 ExerciseDataEntity(id=0, name="Push ups", image=R.id.leg, videoUrl="android.resource://${packageName}/raw/pushups", dayId=1, muscleGroup="Arm", time="0:20"),
                 ExerciseDataEntity(id=0, name="Diagonal plank", image=R.id.leg, videoUrl="android.resource://${packageName}/raw/diagonalplank", dayId=1, muscleGroup="Arm", time="0:20"),
                 ExerciseDataEntity(id=0, name="Incline pushups", image=R.id.leg, videoUrl="android.resource://${packageName}/raw/inclinepushups", dayId=1, muscleGroup="Arm", time="0:30"),
-                ExerciseDataEntity(id=0, name="Star crawl", image=R.id.leg, videoUrl="android.resource://${packageName}/raw/cheststretch", dayId=1, muscleGroup="Arm", time="0:30"), //
+                ExerciseDataEntity(id=0, name="Star crawl", image=R.id.leg, videoUrl="android.resource://${packageName}/raw/starcrawl", dayId=1, muscleGroup="Arm", time="0:30"),
                 ExerciseDataEntity(id=0, name="Triceps dips", image=R.id.leg, videoUrl="android.resource://${packageName}/raw/tricepsdips", dayId=1, muscleGroup="Arm", time="0:30"),
                 ExerciseDataEntity(id=0, name="Push ups", image=R.id.leg, videoUrl="android.resource://${packageName}/raw/pushups", dayId=1, muscleGroup="Arm", time="0:20"),
                 ExerciseDataEntity(id=0, name="Diagonal plank", image=R.id.leg, videoUrl="android.resource://${packageName}/raw/diagonalplank", dayId=1, muscleGroup="Arm", time="0:20"),
@@ -96,42 +96,42 @@ class HomePage : AppCompatActivity() {
                 ExerciseDataEntity(id=0,name ="Jumping jack", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/jumpingjack", dayId = 2, muscleGroup = "Arm", time = "0:30"),
                 ExerciseDataEntity(id=0,name ="Plank taps", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/planktaps", dayId = 2, muscleGroup = "Arm", time = "0:30"),
                 ExerciseDataEntity(id=0,name ="Crab walk", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/tricepsdips", dayId =2, muscleGroup = "Arm", time = "0:30"),//
-                ExerciseDataEntity(id=0,name ="Standing biceps stretch left", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/pushups", dayId = 2, muscleGroup = "Arm", time = "0:20"),//
-                ExerciseDataEntity(id=0,name ="Standing biceps stretch right", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/diagonalplank", dayId = 2, muscleGroup = "Arm", time = "0:20"),//
+                ExerciseDataEntity(id=0,name ="Standing biceps stretch left", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/standingbiceps", dayId = 2, muscleGroup = "Arm", time = "0:20"),//
+                ExerciseDataEntity(id=0,name ="Standing biceps stretch right", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/standingbiceps", dayId = 2, muscleGroup = "Arm", time = "0:20"),//
 
                 ExerciseDataEntity(id=0, name="Punches", image=R.id.leg, videoUrl="android.resource://${packageName}/raw/punches", dayId=3, muscleGroup="Arm", time="0:30"),
-                ExerciseDataEntity(id=0, name="Push ups", image=R.id.leg, videoUrl="android.resource://${packageName}/raw/tricepsdips", dayId=3, muscleGroup="Arm", time="0:30"),
-                ExerciseDataEntity(id=0, name="Knee push ups", image=R.id.leg, videoUrl="android.resource://${packageName}/raw/pushups", dayId=3, muscleGroup="Arm", time="0:20"),
+                ExerciseDataEntity(id=0, name="Push ups", image=R.id.leg, videoUrl="android.resource://${packageName}/raw/pushups", dayId=3, muscleGroup="Arm", time="0:30"),
+                ExerciseDataEntity(id=0, name="Knee push ups", image=R.id.leg, videoUrl="android.resource://${packageName}/raw/kneepushups", dayId=3, muscleGroup="Arm", time="0:20"),
                 ExerciseDataEntity(id=0, name="Diagonal plank", image=R.id.leg, videoUrl="android.resource://${packageName}/raw/diagonalplank", dayId=3, muscleGroup="Arm", time="0:20"),
-                ExerciseDataEntity(id=0, name="Alternating hooks", image=R.id.leg, videoUrl="android.resource://${packageName}/raw/inclinepushups", dayId=3, muscleGroup="Arm", time="0:30"),//
+                ExerciseDataEntity(id=0, name="Alternating hooks", image=R.id.leg, videoUrl="android.resource://${packageName}/raw/hookups", dayId=3, muscleGroup="Arm", time="0:30"),//
                 ExerciseDataEntity(id=0, name="Wall pushups", image=R.id.leg, videoUrl="android.resource://${packageName}/raw/wallpushups", dayId=3, muscleGroup="Arm", time="0:30"),
-                ExerciseDataEntity(id=0, name="Knee pushups", image=R.id.leg, videoUrl="android.resource://${packageName}/raw/tricepsdips", dayId=3, muscleGroup="Arm", time="0:30"),//
+                ExerciseDataEntity(id=0, name="Knee pushups", image=R.id.leg, videoUrl="android.resource://${packageName}/raw/kneepushups", dayId=3, muscleGroup="Arm", time="0:30"),//
                 ExerciseDataEntity(id=0, name="Diagonal plank", image=R.id.leg, videoUrl="android.resource://${packageName}/raw/diagonalplank", dayId=3, muscleGroup="Arm", time="0:20"),
-                ExerciseDataEntity(id=0, name="Alternating hooks", image=R.id.leg, videoUrl="android.resource://${packageName}/raw/diagonalplank", dayId=3, muscleGroup="Arm", time="0:20"),//
+                ExerciseDataEntity(id=0, name="Alternating hooks", image=R.id.leg, videoUrl="android.resource://${packageName}/raw/hookups", dayId=3, muscleGroup="Arm", time="0:20"),//
                 ExerciseDataEntity(id=0, name="Incline pushups", image=R.id.leg, videoUrl="android.resource://${packageName}/raw/inclinepushups", dayId=3, muscleGroup="Arm", time="0:30"),
 
                 ExerciseDataEntity(id= 0,name ="Dynamic chest", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/elbowback", dayId = 4, muscleGroup = "Arm", time = "0:30"),//
                 ExerciseDataEntity(id=0,name ="Triceps dips", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/tricepsdips", dayId =4, muscleGroup = "Arm", time = "0:30"),
-                ExerciseDataEntity(id=0,name ="Leg barbel curl left", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/pushups", dayId = 4, muscleGroup = "Arm", time = "0:20"),//
-                ExerciseDataEntity(id=0,name ="Leg barbel curl right", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/diagonalplank", dayId = 4, muscleGroup = "Arm", time = "0:20"),//
-                ExerciseDataEntity(id=0,name ="Knee pushups", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/inclinepushups", dayId = 4, muscleGroup = "Arm", time = "0:30"),//
+                ExerciseDataEntity(id=0,name ="Leg barbel curl left", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/legbarbellcurl", dayId = 4, muscleGroup = "Arm", time = "0:20"),//
+                ExerciseDataEntity(id=0,name ="Leg barbel curl right", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/legbarbellcurl", dayId = 4, muscleGroup = "Arm", time = "0:20"),//
+                ExerciseDataEntity(id=0,name ="Knee pushups", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/kneepushups", dayId = 4, muscleGroup = "Arm", time = "0:30"),//
                 ExerciseDataEntity(id=0,name ="Jumping jack", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/jumpingjack", dayId = 4, muscleGroup = "Arm", time = "0:30"),
-                ExerciseDataEntity(id=0,name ="Wide arm pushups", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/cheststretch", dayId = 4, muscleGroup = "Arm", time = "0:30"),
-                ExerciseDataEntity(id=0,name ="Crab walk", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/tricepsdips", dayId =4, muscleGroup = "Arm", time = "0:30"),//
-                ExerciseDataEntity(id=0,name ="Leg barbel curl left", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/pushups", dayId = 4, muscleGroup = "Arm", time = "0:20"),//
-                ExerciseDataEntity(id=0,name ="Leg barbel curl right", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/diagonalplank", dayId = 4, muscleGroup = "Arm", time = "0:20"),//
+                ExerciseDataEntity(id=0,name ="Wide arm pushups", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/pushups", dayId = 4, muscleGroup = "Arm", time = "0:30"),
+                ExerciseDataEntity(id=0,name ="Crab walk", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/crabwalk", dayId =4, muscleGroup = "Arm", time = "0:30"),//
+                ExerciseDataEntity(id=0,name ="Leg barbel curl left", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/legbarbellcurl", dayId = 4, muscleGroup = "Arm", time = "0:20"),//
+                ExerciseDataEntity(id=0,name ="Leg barbel curl right", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/legbarbellcurl", dayId = 4, muscleGroup = "Arm", time = "0:20"),//
 
 
                 ExerciseDataEntity(id=0,name ="Elbow back", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/elbowback", dayId = 5, muscleGroup = "Arm", time = "0:30"),
-                ExerciseDataEntity(id=0,name ="Push ups", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/tricepsdips", dayId =5, muscleGroup = "Arm", time = "0:30"),
-                ExerciseDataEntity(id=0,name ="Wide arm pushups", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/pushups", dayId = 5, muscleGroup = "Arm", time = "0:20"),
-                ExerciseDataEntity(id=0,name ="Incline pushups", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/diagonalplank", dayId = 5, muscleGroup = "Arm", time = "0:20"),
-                ExerciseDataEntity(id=0,name ="Alternating hooks", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/inclinepushups", dayId = 5, muscleGroup = "Arm", time = "0:30"),//
-                ExerciseDataEntity(id=0,name ="Start crawl", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/cheststretch", dayId = 5, muscleGroup = "Arm", time = "0:30"),//
+                ExerciseDataEntity(id=0,name ="Push ups", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/pushups", dayId =5, muscleGroup = "Arm", time = "0:30"),
+                ExerciseDataEntity(id=0,name ="Wide arm pushups", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/widearmpushups", dayId = 5, muscleGroup = "Arm", time = "0:20"),
+                ExerciseDataEntity(id=0,name ="Incline pushups", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/inclinepushups", dayId = 5, muscleGroup = "Arm", time = "0:20"),
+                ExerciseDataEntity(id=0,name ="Alternating hooks", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/hookups", dayId = 5, muscleGroup = "Arm", time = "0:30"),//
+                ExerciseDataEntity(id=0,name ="Start crawl", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/starcrawl", dayId = 5, muscleGroup = "Arm", time = "0:30"),//
                 ExerciseDataEntity(id=0,name ="Wall pushups", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/wallpushups", dayId = 5, muscleGroup = "Arm", time = "0:30"),
                 ExerciseDataEntity(id=0,name ="Triceps dips", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/tricepsdips", dayId =5, muscleGroup = "Arm", time = "0:30"),
-                ExerciseDataEntity(id=0,name ="Standing biceps stretch left", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/pushups", dayId = 5, muscleGroup = "Arm", time = "0:20"),//
-                ExerciseDataEntity(id=0,name ="Standing biceps stretch right", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/diagonalplank", dayId = 5, muscleGroup = "Arm", time = "0:20"),//
+                ExerciseDataEntity(id=0,name ="Standing biceps stretch left", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/standingbiceps", dayId = 5, muscleGroup = "Arm", time = "0:20"),//
+                ExerciseDataEntity(id=0,name ="Standing biceps stretch right", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/standingbiceps", dayId = 5, muscleGroup = "Arm", time = "0:20"),//
 
             ExerciseDataEntity(id=0,name ="Punches", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/punches", dayId = 6, muscleGroup = "Arm", time = "0:30"),
             ExerciseDataEntity(id=0,name ="Push ups", image = R.id.leg, videoUrl = "android.resource://${packageName}/raw/pushups", dayId =6, muscleGroup = "Arm", time = "0:30"),
